@@ -1,0 +1,15 @@
+E:\XAML\LoginSlide\bin\Debug\LoginSlide.exe.config
+E:\XAML\LoginSlide\bin\Debug\LoginSlide.exe
+E:\XAML\LoginSlide\bin\Debug\LoginSlide.pdb
+E:\XAML\LoginSlide\obj\Debug\LoginSlide.csproj.AssemblyReference.cache
+E:\XAML\LoginSlide\obj\Debug\MainWindow.g.cs
+E:\XAML\LoginSlide\obj\Debug\App.g.cs
+E:\XAML\LoginSlide\obj\Debug\LoginSlide_MarkupCompile.cache
+E:\XAML\LoginSlide\obj\Debug\LoginSlide_MarkupCompile.lref
+E:\XAML\LoginSlide\obj\Debug\MainWindow.baml
+E:\XAML\LoginSlide\obj\Debug\LoginSlide.g.resources
+E:\XAML\LoginSlide\obj\Debug\LoginSlide.Properties.Resources.resources
+E:\XAML\LoginSlide\obj\Debug\LoginSlide.csproj.GenerateResource.cache
+E:\XAML\LoginSlide\obj\Debug\LoginSlide.csproj.CoreCompileInputs.cache
+E:\XAML\LoginSlide\obj\Debug\LoginSlide.exe
+E:\XAML\LoginSlide\obj\Debug\LoginSlide.pdb

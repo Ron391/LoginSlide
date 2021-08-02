@@ -1,0 +1,159 @@
+﻿<Window x:Class="LoginSlide.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoginSlide"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="134">
+                            <Rectangle Fill="#FF3905E8" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="134"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Facebook" VerticalAlignment="Top" Width="93" Margin="41,6,0,0"/>
+                            <Image HorizontalAlignment="Left" Height="24" Margin="7,2,0,0" VerticalAlignment="Top" Width="24" Source="icons8-facebook-circled-24.png"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true"/>
+                            <Trigger Property="IsMouseOver" Value="true"/>
+                            <Trigger Property="IsPressed" Value="true"/>
+                            <Trigger Property="IsEnabled" Value="false"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="134">
+                            <Rectangle Fill="#FFE80505" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="134"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Google" VerticalAlignment="Top" Width="84" Margin="50,6,0,0"/>
+                            <Image HorizontalAlignment="Left" Height="24" Margin="7,2,0,0" VerticalAlignment="Top" Width="24" Source="icons8-google-24.png"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true"/>
+                            <Trigger Property="IsMouseOver" Value="true"/>
+                            <Trigger Property="IsPressed" Value="true"/>
+                            <Trigger Property="IsEnabled" Value="false"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Storyboard x:Key="Storyboard1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SignUp">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SignIn">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-490"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.787"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="button">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+
+        <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="312">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF0051" Offset="0"/>
+                    <GradientStop Color="#FFFB52BE" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="450" Stroke="Black" VerticalAlignment="Top" Width="488" Margin="312,0,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Height="252" Margin="37,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" Foreground="White"><Run FontSize="18" Text=" # A I R B I T"/><LineBreak/><Run FontSize="18"/><LineBreak/><Run FontWeight="Bold" FontSize="18" Text="Earn Money From People"/><LineBreak/><Run FontWeight="Bold" FontSize="18" Text="Who Want Your Beats"/><LineBreak/><Run FontWeight="Bold" FontSize="18"/><LineBreak/><Run Text="Millions of people are looking for beats"/><LineBreak/><Run Text="online, start selling today and reach"/><LineBreak/><Run Text="your audience"/></TextBlock>
+        <Grid x:Name="SignUp" Margin="312,0,0,0">
+            <Button x:Name="button" Content="Login" HorizontalAlignment="Left" Height="28" Margin="405,6,0,0" VerticalAlignment="Top" Width="74" Background="#FFFB4BB4" Foreground="White" BorderBrush="{x:Null}"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="273,11,0,0" TextWrapping="Wrap" Text="Already an Airbit member?" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="10"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="0,48.473,0,0" TextWrapping="Wrap" Text="Don't wait !" VerticalAlignment="Top" Width="488" Foreground="White" TextAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Height="28" Margin="0,70.473,0,0" TextWrapping="Wrap" Text="Sign Up to Airbit" VerticalAlignment="Top" Width="488" Foreground="White" TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="34" Margin="92,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Background="#FF2E2D2D" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="Black" VerticalContentAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="92,105,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="297" Foreground="White"/>
+            <TextBox HorizontalAlignment="Left" Height="34" Margin="92,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Background="#FF2E2D2D" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="Black" VerticalContentAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="92,166,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Width="297" Foreground="White"/>
+            <PasswordBox HorizontalAlignment="Left" Height="34" Margin="92,249,0,0" VerticalAlignment="Top" Width="297" Background="#FF2E2D2D" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="Black"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="92,227,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="297" Foreground="White"/>
+            <PasswordBox HorizontalAlignment="Left" Height="34" Margin="92,310,0,0" VerticalAlignment="Top" Width="297" Background="#FF2E2D2D" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="Black"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="92,288,0,0" TextWrapping="Wrap" Text="Confirm Password" VerticalAlignment="Top" Width="297" Foreground="White"/>
+            <Path Data="M404,389 L701.00168,389" Fill="White" HorizontalAlignment="Left" Height="1" Margin="92,390,0,0" Stretch="Fill" Stroke="White" VerticalAlignment="Top" Width="298.002"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="184,381,0,0" TextWrapping="Wrap" Text="Or Sign Up with" VerticalAlignment="Top" Width="111" Foreground="White" TextAlignment="Center" Background="Black"/>
+            <Button Content="Facebook" HorizontalAlignment="Left" Height="28" Margin="92,403,0,0" VerticalAlignment="Top" Width="134" Background="#FF3905E8" Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}"/>
+            <Button Content="Sign Up" HorizontalAlignment="Left" Height="31" Margin="93,350,0,0" VerticalAlignment="Top" Width="296" Background="#FFFF0659" BorderBrush="{x:Null}" Foreground="White" FontSize="14" FontWeight="Bold"/>
+            <Button Content="Facebook" HorizontalAlignment="Left" Height="28" Margin="255,403,0,0" VerticalAlignment="Top" Width="134" Background="#FF3905E8" Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle2}"/>
+
+        </Grid>
+        <Grid x:Name="SignIn" Margin="802,0,-490,0" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Button Content="Sign Up" HorizontalAlignment="Left" Height="28" Margin="404,6,0,0" VerticalAlignment="Top" Width="74" Background="#FFFF0152" Foreground="White" BorderBrush="{x:Null}"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="311,11,0,0" TextWrapping="Wrap" Text="New to Airbit?" VerticalAlignment="Top" Width="78" Foreground="White" FontSize="10"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="0,59.473,0,0" TextWrapping="Wrap" Text="Already an Airbit member?" VerticalAlignment="Top" Width="488" Foreground="White" TextAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Height="28" Margin="0,81.473,0,0" TextWrapping="Wrap" Text="Login to Airbit" VerticalAlignment="Top" Width="488" Foreground="White" TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="34" Margin="92,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Background="#FF2E2D2D" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="Black" VerticalContentAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="92,132,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Width="297" Foreground="White"/>
+            <PasswordBox HorizontalAlignment="Left" Height="34" Margin="92,215,0,0" VerticalAlignment="Top" Width="297" Background="#FF2E2D2D" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="Black" VerticalContentAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="92,193,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="297" Foreground="White"/>
+            <Path Data="M404,389 L701.00168,389" Fill="White" HorizontalAlignment="Left" Height="1" Margin="92,339,0,0" Stretch="Fill" Stroke="White" VerticalAlignment="Top" Width="298.002"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="197,331,0,0" TextWrapping="Wrap" Text="Or Login with" VerticalAlignment="Top" Width="85" Foreground="White" TextAlignment="Center" Background="Black"/>
+            <Button Content="Facebook" HorizontalAlignment="Left" Height="28" Margin="92,350,0,0" VerticalAlignment="Top" Width="134" Background="#FF3905E8" Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}"/>
+            <Button Content="Facebook" HorizontalAlignment="Left" Height="28" Margin="255,350,0,0" VerticalAlignment="Top" Width="134" Background="#FF3905E8" Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle2}"/>
+            <CheckBox Content="Remember me" HorizontalAlignment="Left" Height="18" Margin="95,259,0,0" VerticalAlignment="Top" Width="131" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="213,258,0,0" TextWrapping="Wrap" Text="Forgot Password?" VerticalAlignment="Top" Width="176" Foreground="White" TextAlignment="Right"/>
+            <Button Content="Login" HorizontalAlignment="Left" Height="31" Margin="95,287,0,0" VerticalAlignment="Top" Width="294" Background="#FFFF00DC" BorderBrush="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="14"/>
+
+        </Grid>
+    </Grid>
+</Window>
